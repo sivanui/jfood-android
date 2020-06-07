@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp"
+    tools:context=".SelesaiPesananActivity">
+
+    <LinearLayout
+        android:id="@+id/selesai_pesanan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/id_invoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invoice ID"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Customer"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/nama_makanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Makanan"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/tanggal_pesan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Pesanan"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/total_biaya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Biaya Total"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/status_invoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invoice Status"
+            android:textSize="18dp"/>
+
+        <Button
+            android:id="@+id/selesai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PROCEED"/>
+
+        <Button
+            android:id="@+id/batal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CANCEL"/>
+
+    </LinearLayout>
+
+</LinearLayout>

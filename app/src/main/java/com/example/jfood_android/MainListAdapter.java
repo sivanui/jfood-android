@@ -26,7 +26,8 @@ public class MainListAdapter extends BaseExpandableListAdapter
         return this._listDataChild.get(this._listDataHeader.get(groupPosition)).get(childPosititon);
     }
     @Override
-    public long getChildId(int groupPosition, int childPosition) {
+    public long getChildId(int groupPosition, int childPosition)
+    {
         return childPosition;
     }
     @Override
@@ -39,7 +40,7 @@ public class MainListAdapter extends BaseExpandableListAdapter
             convertView = infalInflater.inflate(R.layout.layout_food, null);
         }
         TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
-        String s = "[" + childText.getId() + "] " + childText.getName() + ", Price : " + childText.getPrice();
+        String s = "[" + childText.getId() + "] " + childText.getName() + ", Price: " + childText.getPrice();
         txtListChild.setText(s);
         return convertView;
     }
@@ -49,15 +50,18 @@ public class MainListAdapter extends BaseExpandableListAdapter
         return this._listDataChild.get(this._listDataHeader.get(groupPosition)).size();
     }
     @Override
-    public Object getGroup(int groupPosition) {
+    public Object getGroup(int groupPosition)
+    {
         return this._listDataHeader.get(groupPosition);
     }
     @Override
-    public int getGroupCount() {
+    public int getGroupCount()
+    {
         return this._listDataHeader.size();
     }
     @Override
-    public long getGroupId(int groupPosition) {
+    public long getGroupId(int groupPosition)
+    {
         return groupPosition;
     }
     @Override
@@ -71,11 +75,12 @@ public class MainListAdapter extends BaseExpandableListAdapter
         }
         TextView ListHeader = (TextView) convertView.findViewById(R.id.lblListHeader);
         ListHeader.setTypeface(null, Typeface.BOLD);
-        ListHeader.setText("Seller " + headerTitle.getName());
+        ListHeader.setText("Seller: " + headerTitle.getName());
         return convertView;
     }
     @Override
-    public boolean hasStableIds() {
+    public boolean hasStableIds()
+    {
         return false;
     }
     @Override

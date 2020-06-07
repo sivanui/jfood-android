@@ -9,11 +9,11 @@ public class Food
     private Seller seller;
     public Food(int id, String name, int price, String category, Seller seller)
     {
-        this.id=id;
-        this.name=name;
-        this.price=price;
-        this.category=category;
-        this.seller=seller;
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.seller = seller;
     }
     public int getId()
     {
@@ -37,32 +37,33 @@ public class Food
     }
     public void setId(int id)
     {
-        this.id=id;
+        this.id = id;
     }
     public void setName(String name)
     {
-        this.name=name;
+        this.name = name;
     }
     public void setPrice(int price)
     {
-        this.price=price;
+        this.price = price;
     }
     public void setCategory(String category)
     {
-        this.category=category;
+        this.category = category;
     }
     public void setSeller(Seller seller)
     {
-        this.seller=seller;
+        this.seller = seller;
     }
+    @Override
     public String toString()
     {
-        return "================== Item ====================" +
-                "\nItem ID       : " +  getId() +
-                "\nItem Name     : " + getName() +
-                "\nItem Price    : " + getPrice() +
-                "\nItem Category : " + getCategory() +
-                "\nSeller      : " + getSeller().getName() +
+        return "================== Food ==================" +
+                "\nId: " + id +
+                "\nName: " + name +
+                "\nPrice: " + price +
+                "\nCategory: " + category +
+                "\nSeller: " + seller +
                 "\n==========================================";
     }
 }

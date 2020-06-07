@@ -1,6 +1,9 @@
 package com.example.jfood_android;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.app.AlertDialog;
@@ -25,8 +28,34 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+        final int currentUserId = getIntent().getExtras().getInt("currentUserId");
         refreshList();
+        findViewById(R.id.pesanan).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(MainActivity.this, SelesaiPesananActivity.class);
+                intent.putExtra("currentUserId", currentUserId);
+                startActivity(intent);
+            }
+        });
+        expListView = findViewById(R.id.lvExp);
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener()
+        {
+            @Override
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l)
+            {
+                Intent intent = new Intent(MainActivity.this, BuatPesananActivity.class);
+                intent.putExtra("currentUserId", currentUserId);
+                intent.putExtra("id_food", childMapping.get(listSeller.get(i)).get(i1).getId());
+                intent.putExtra("foodName", childMapping.get(listSeller.get(i)).get(i1).getName());
+                intent.putExtra("foodCategory", childMapping.get(listSeller.get(i)).get(i1).getCategory());
+                intent.putExtra("foodPrice", childMapping.get(listSeller.get(i)).get(i1).getPrice());
+                startActivity(intent);
+                return true;
+            }
+        });
     }
     protected void refreshList()
     {
@@ -69,7 +98,7 @@ public class MainActivity extends AppCompatActivity
                                 tempStatus = false;
                             }
                         }
-                        if(tempStatus==true)
+                        if(tempStatus)
                         {
                             listSeller.add(newSeller);
                         }
@@ -77,8 +106,7 @@ public class MainActivity extends AppCompatActivity
                     for(Seller sellerPtr : listSeller)
                     {
                         ArrayList<Food> tempFoodList = new ArrayList<>();
-                        for(Food foodPtr : foodIdList)
-                        {
+                        for(Food foodPtr : foodIdList){
                             if(foodPtr.getSeller().getId() == sellerPtr.getId())
                             {
                                 tempFoodList.add(foodPtr);
@@ -92,7 +120,7 @@ public class MainActivity extends AppCompatActivity
                 catch (JSONException e)
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                    builder.setMessage("Load Data Failed.").create().show();
+                    builder.setMessage("Loading data failed").create().show();
                 }
             }
         };

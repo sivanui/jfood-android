@@ -4,17 +4,18 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MenuRequest extends StringRequest
+public class CheckPromoRequest extends StringRequest
 {
-    private static String URL = "http://192.168.100.31:8080/food";
+    private static String URL = "http://192.168.100.31:8080/promo";
     private Map<String, String> params;
-    public MenuRequest(Response.Listener<String> listener)
+    public CheckPromoRequest(Response.Listener<String> listener)
     {
         super(Method.GET, URL, listener, null);
         params = new HashMap<>();
     }
     @Override
-    public Map<String, String> getParams() {
+    public Map<String, String> getParams()
+    {
         return params;
     }
 }
